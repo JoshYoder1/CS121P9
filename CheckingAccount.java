@@ -5,8 +5,9 @@ class CheckingAccount implements HasMenu{
 	Scanner input = new Scanner(System.in);
 	public static void main(String[] args){
 		System.out.println("Running Main in CheckingAccount.java");
-		CheckingAccount test = new CheckingAccount();
+		CheckingAccount test = new CheckingAccount(8);
 		test.menu();
+		test.setBalance();
 	}//end Main
 
 	public CheckingAccount(){
@@ -14,9 +15,9 @@ class CheckingAccount implements HasMenu{
 		balance = 0;
 	}// end CheckingAccount()
 
-	public CheckingAccount(double balance){
+	public CheckingAccount(double bal){
 		System.out.println("Running Constructer(1) in CheckingAccount.java");
-		
+		balance = bal;
 	}//end CheckingAccount(1)
 
 	//HasMenu.java Methods
@@ -60,19 +61,23 @@ class CheckingAccount implements HasMenu{
 	
 	public double getBalance(){
 		System.out.println("Running getBalance in CheckingAccount.java");
-		double doubbal = balance;
+		double doubbal = Double.valueOf(balance)
 		return(doubbal);
 	}//end getBalance
 
 	public String getBalanceString(){
 		System.out.println("Running getBalanceString in CheckingAccount.java");
-		String stringbal = balance;
-		return(stringbal);
+		String temp = String.valueOf(balance);
+		return(temp);	
 	}//end getBalanceString
 
 	public void setBalance(){
 		System.out.println("Running setBalance in CheckingAccount.java");
-		balance = input.nextLine();
+		System.out.print("Set new balance: ");
+		String temp = input.nextLine();
+		System.out.println(" ");
+		balance = Double.valueOf(temp);
+		System.out.println("New balance is: " + temp);
 	}//end setBalance
 
 	public void checkBalance(){
