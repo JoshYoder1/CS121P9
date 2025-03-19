@@ -22,7 +22,7 @@ testCustomer: Customer.class
 testChecking: CheckingAccount.class
 	java CheckingAccount
 
-testSavings: SavingsAccount.class
+testSavings: SavingsAccount.class CheckingAccount.class
 	java SavingsAccount
 
 clean:

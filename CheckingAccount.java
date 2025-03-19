@@ -115,7 +115,7 @@ class CheckingAccount implements HasMenu{
 		System.out.println(" ");
 	}//end checkBalance
 
-	private double getDouble(){
+	protected double getDouble(){
 		//System.out.println("Running getDouble in CheckingAccount.java");
 		while(true){	
 			try{
