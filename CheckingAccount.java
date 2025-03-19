@@ -6,7 +6,7 @@ class CheckingAccount implements HasMenu{
 	public static void main(String[] args){
 		System.out.println("Running Main in CheckingAccount.java");
 		CheckingAccount test = new CheckingAccount(8);
-		test.menu();
+		test.start();
 		test.setBalance();
 	}//end Main
 
@@ -34,6 +34,7 @@ class CheckingAccount implements HasMenu{
 		while(keepGoing){
 			System.out.print("Please enter 0-3: ");
 			choice = input.nextLine();
+			System.out.println(" ");
 			if(choice.equals("0")){
 				return("0");
 			}//end if
@@ -56,12 +57,32 @@ class CheckingAccount implements HasMenu{
 
 	public void start(){
 		System.out.println("Running start in CheckingAccount.java");
+		boolean keepGoing = true;
+
+		while(keepGoing){
+			String choice = menu();
+			if(choice.equals("0")){
+				keepGoing = false;
+			}//end if
+			else if(choice.equals("1")){
+				checkBalance();
+			}//end elif
+			else if(choice.equals("2")){
+				makeDeposit();
+			}//end elif
+			else if(choice.equals("3")){
+				makeWithdrawal();
+			}//end elif
+			else{
+				System.out.println("!!!CHOICE ERROR!!!");
+			}//end else
+		}//end while
 	}//end start
 	//End HasMenu.java Methods
 	
 	public double getBalance(){
 		System.out.println("Running getBalance in CheckingAccount.java");
-		double doubbal = Double.valueOf(balance)
+		double doubbal = Double.valueOf(balance);
 		return(doubbal);
 	}//end getBalance
 
@@ -73,15 +94,27 @@ class CheckingAccount implements HasMenu{
 
 	public void setBalance(){
 		System.out.println("Running setBalance in CheckingAccount.java");
+		System.out.print("Current balance: ");
+		System.out.format("%.2f", balance);
+		System.out.println();
 		System.out.print("Set new balance: ");
-		String temp = input.nextLine();
-		System.out.println(" ");
-		balance = Double.valueOf(temp);
-		System.out.println("New balance is: " + temp);
+		try{
+			String temp = input.nextLine();
+			balance = Double.valueOf(temp);
+		} catch(NumberFormatException e){
+			System.out.println("!!!ENTER A NUMBER!!!");
+		}//end try
+		System.out.print("New balance is: ");
+		System.out.format("%.2f", balance);
+		System.out.println();
 	}//end setBalance
 
 	public void checkBalance(){
 		System.out.println("Running checkBalance in CheckingAccount.java");
+		System.out.println("Checking balance...");
+		System.out.print("Current balance: $");
+		System.out.format("%.2f", balance);
+		System.out.println(" ");
 	}//end checkBalance
 
 	private double getDouble(){
