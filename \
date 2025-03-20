@@ -1,0 +1,44 @@
+//User.java
+abstract class User implements HasMenu{
+	String userName;
+	String PIN;
+
+	public String menu(){
+		System.out.println("Running menu in User.java");
+	}//end menu
+
+	public void start(){
+		System.out.println("Running start in User.java");
+	}//end start
+
+	public boolean login(){
+		System.out.println("Running login in User.java");
+	}//end login
+
+	public boolean login(username, PIN){
+		System.out.println("Running login(2) in User.java");
+	}//end login(2)
+	
+	public void setUserName(userName){
+		System.out.println("Running setUserName in User.java");
+	}//end setUserName
+	
+	public String getUserName(){
+		System.out.println("Running getUserName in User.java");
+		System.out.println("Fetching username...");
+		System.out.println("Username: " + username);
+		return(username);
+	}//end getUserName
+	
+	public void setPIN(PIN){
+		System.out.println("Running setPIN in User.java");
+	}//end setPIN
+	
+	public String getPIN(){
+		System.out.println("Running getPIN in User.java");
+	}//end getPIN
+	
+	abstract String getReport(){
+		System.out.println("Running getReport in User.java");
+	}//end getReport
+}//end abstract class
