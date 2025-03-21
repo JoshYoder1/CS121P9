@@ -13,12 +13,12 @@ class SavingsAccount extends CheckingAccount{
 	}//end main
 
 	public SavingsAccount(){
-		System.out.println("Running SavingsAccount in SavingsAccount.java");
+		//System.out.println("Running SavingsAccount in SavingsAccount.java");
 		balance = 0;
 	}//end SavingsAccount
 
 	public SavingsAccount(double bal){
-		System.out.println("Running SavingsAccount(1) in SavingsAccount.java");
+		//System.out.println("Running SavingsAccount(1) in SavingsAccount.java");
 		balance = bal;
 	}//end SavingsAccount(1)
 

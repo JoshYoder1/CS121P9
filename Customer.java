@@ -3,20 +3,19 @@
 //import SavingsAccount.java;
 
 class Customer extends User{
-	CheckingAccount checking;
-	SavingsAccount savings;
+	CheckingAccount checking = new CheckingAccount();
+	SavingsAccount savings = new SavingsAccount();
 	
 	public static void main(String[] args){
-		System.out.println("Running main in Customer.java");
-		Customer test = new Customer();
+		//System.out.println("Running main in Customer.java");
+		Customer test = new Customer("Alice", "0000");
+		test.login();
 		test.start();
 
 	}//end main
 
 	public Customer(){
-		System.out.println("Running Customer in Customer.java");
-		//checking = CheckingAccount();
-		//savings = SavingsAccount();
+		//System.out.println("Running Customer in Customer.java");
 		System.out.println("Enter user name: ");
 		userName = input.nextLine();
 		System.out.println();
@@ -26,14 +25,14 @@ class Customer extends User{
 	}//end Customer
 
 	public Customer(String tempUser, String tempPIN){
-		System.out.println("Running Customer(2) in Customer.java");
+		//System.out.println("Running Customer(2) in Customer.java");
 		userName = tempUser;
 		PIN = tempPIN;
 	}//end Customer(2)
 	
 	//Start hasMenu Methods
 	public void start(){
-		System.out.println("Running start in Customer.java");
+		//System.out.println("Running start in Customer.java");
 		boolean keepGoing = true;
 		while(keepGoing){
 			String choice = menu();
@@ -53,7 +52,8 @@ class Customer extends User{
 	}//end Start
 
 	public String menu(){
-		System.out.println("Running menu in Customer.java");
+		System.out.println("-------------------------");
+		//System.out.println("Running menu in Customer.java");
 		System.out.println();
 		System.out.println("Customer Menu");
 		System.out.println();
@@ -92,12 +92,14 @@ class Customer extends User{
 	//end hasMenu Methods
 
 	public void changePin(){
-		System.out.println("Running changePin in Customer.java");
-		
+		//System.out.println("Running changePin in Customer.java");
+		System.out.print("Enter new PIN: ");
+		setPIN(input.nextLine());
+		System.out.println();
 	}//end changePin
 
 	public String getReport(){
-		System.out.println("Running getReport in Customer.java");
+		//System.out.println("Running getReport in Customer.java");
 		return(" ");
 	}//end getReport
 }//end class
