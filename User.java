@@ -1,5 +1,5 @@
 //User.java
-import java.util.*
+import java.util.*;
 
 abstract class User implements HasMenu{
 	String userName;
@@ -31,7 +31,7 @@ abstract class User implements HasMenu{
 		}//end else
 	}//end login
 
-	public boolean login(String tempUser, String tmepPIN){
+	public boolean login(String tempUser, String tempPIN){
 		System.out.println("Running login(2) in User.java");
 		if(tempUser.equals(userName) && tempPIN.equals(PIN)){
 			System.out.println("Login Successful");
@@ -43,33 +43,35 @@ abstract class User implements HasMenu{
 		}//end else
 	}//end login(2)
 	
-	public void setUserName(userName){
+	public void setUserName(String tempUser){
 		System.out.println("Running setUserName in User.java");
-		System.out.print("Set User name: ");
-		username = input.nextLine();
-		System.out.prinln();
-		System.out.println("User name: " +  username);
+		System.out.println("User name: " +  userName);
 	}//end setUserName
 	
 	public String getUserName(){
 		System.out.println("Running getUserName in User.java");
 		System.out.println("Fetching user name...");
-		System.out.println("User name: " + username);
-		return(username);
+		System.out.println("User name: " + userName);
+		return(userName);
 	}//end getUserName
 	
-	public void setPIN(PIN){
+	public void setPIN(String tempPin){
 		System.out.println("Running setPIN in User.java");
-		System.out.print("Set PIN: ");
-		PIN = input.nextLine();
-		System.out.println();
-		System.out.println("New PIN is: " + PIN);
+		if(tempPin.matches("^\\d(4)$")){
+			PIN = tempPin;
+			System.out.println("Setting PIN:" + PIN);
+		}//end if
+		else{
+			System.out.println("PIN must be four digits, aall numeric");
+			System.out.println("Setting PIN: 0000");
+			PIN = "0000";
+		}//end else
 	}//end setPIN
 	
 	public String getPIN(){
 		System.out.println("Running getPIN in User.java");
 		System.out.println("Fetching PIN...");
-		System.out/println("PIN: " + PIN);
+		System.out.println("PIN: " + PIN);
 		return(PIN);
 	}//end getPIN
 	
