@@ -1,8 +1,7 @@
 //User.java
 import java.util.*;
 
-abstract class User implements HasMenu{
-	String userName;
+abstract class User implements HasMenu, Serializable{
 	String PIN;
 	Scanner input = new Scanner(System.in);
 	/* Being hasMenu methods
