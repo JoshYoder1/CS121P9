@@ -4,7 +4,6 @@ class Admin extends User{
 	private Scanner input = new Scanner(System.in);
 
 	public Admin(){
-	
 	}//end Admin
 
 	public String menu(){
@@ -14,7 +13,7 @@ class Admin extends User{
 		System.out.println("0) Exit this menu");
 		System.out.println("1) Full customer report");
 		System.out.println("2) Add user");
-		System.out.println("3) Apply interest to savings accounts"); System.out.println("");
+		System.out.println("3) Apply interest to savings accounts"); System.out.println();
 		System.out.print("Action: ");
 		return(input.nextLine());
 		/*while(keepGoing){
@@ -42,7 +41,7 @@ class Admin extends User{
 		}*///end while
 	}//end menu
 
-	public void start(){
+	public void start();
 		boolean keepGoing;
 		while(keepGoing){
 			String choice = menu();
@@ -60,4 +59,6 @@ class Admin extends User{
 			}//end else
 		}//end while
 	}//end start
+	public String getReport(){};
+
 }//end class
