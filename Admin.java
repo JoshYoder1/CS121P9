@@ -1,9 +1,12 @@
 //Admin.java
+import java.util.*;
 
 class Admin extends User{
 	private Scanner input = new Scanner(System.in);
 
 	public Admin(){
+		System.out.print("Set Username: "); userName = "Admin"; System.out.println("Admin");
+		System.out.print("Set PIN: "); PIN = "0000"; System.out.println("0000");
 	}//end Admin
 
 	public String menu(){
@@ -41,11 +44,11 @@ class Admin extends User{
 		}*///end while
 	}//end menu
 
-	public void start();
-		boolean keepGoing;
+	public void start(){
+		boolean keepGoing = true;
 		while(keepGoing){
 			String choice = menu();
-			if(choice.equals("1"){
+			if(choice.equals("1")){
 				System.out.println("Full customer Report");
 			}//end if
 			else if(choice.equals("2")){
@@ -54,11 +57,18 @@ class Admin extends User{
 			else if(choice.equals("3")){
 				System.out.println("Apply Interest");
 			}//end elif
+			else if(choice.equals("0")){
+				keepGoing = false;
+			}//end elif
 			else{
 				System.out.println("!!!Please enter 0-3!!!");
 			}//end else
 		}//end while
 	}//end start
-	public String getReport(){};
+	
+	public String getReport(){
+		System.out.println("Running getReport in Admin.java");
+		return("N/A");
+	}//end getReport
 
 }//end class

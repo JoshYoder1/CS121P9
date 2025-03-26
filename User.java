@@ -1,8 +1,9 @@
 //User.java
 import java.util.*;
 
-abstract class User implements HasMenu, Serializable{
+abstract class User implements HasMenu{
 	String PIN;
+	String userName;
 	Scanner input = new Scanner(System.in);
 	/* Being hasMenu methods
 	public String menu(){
@@ -17,8 +18,8 @@ abstract class User implements HasMenu, Serializable{
 		//System.out.println("Running login in User.java");
 		System.out.print("User name: ");
 		String tempUser = input.nextLine();
-		System.out.println();
-		System.out.print("PIN:");
+		//System.out.println();
+		System.out.print("PIN: ");
 		String tempPIN = input.nextLine();
 		if(tempUser.equals(userName) && tempPIN.equals(PIN)){
 			System.out.println("Login Successful");
