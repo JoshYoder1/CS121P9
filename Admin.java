@@ -67,8 +67,8 @@ class Admin extends User{
 	}//end start
 	
 	public String getReport(){
-		System.out.println("Running getReport in Admin.java");
-		return("N/A");
+		//System.out.println("Running getReport in Admin.java");
+		return("Admin: Username: " + userName + ", PIN: " + PIN);
 	}//end getReport
 
 }//end class

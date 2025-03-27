@@ -18,7 +18,7 @@ class Bank implements HasMenu{
 	public static void main(String[] args){
 		System.out.println("Running Main in Bank");
 		Bank bank = new Bank();
-		bank.start();
+		//bank.start();
 	}//end main
 
 	public void loadSampleCustomers(){}//end LoadSampleCustomers
@@ -29,7 +29,7 @@ class Bank implements HasMenu{
 			FileOutputStream fo = new FileOutputStream("customers.dat");
 			ObjectOutputStream obOut = new ObjectOutputStream(fo);
 			obOut.writeObject(customers);
-			System.out.println("Save ArrayList... Successful!");
+			//System.out.println("Save ArrayList... Successful!");
 			obOut.close();
 			fo.close();
 		}catch(Exception e){
@@ -42,7 +42,7 @@ class Bank implements HasMenu{
 			FileInputStream fIn = new FileInputStream("customers.dat");
 			ObjectInputStream obIn = new ObjectInputStream(fIn);
 			customers = (ArrayList<Customer>)obIn.readObject();
-			System.out.println("Load ArrayList... Successful!");
+			//System.out.println("Load ArrayList... Successful!");
 			obIn.close();
 			fIn.close();
 		} catch(Exception e){
@@ -50,13 +50,32 @@ class Bank implements HasMenu{
 		}//end try
 	}//end loadCustomers
 
-	public void reportAllUsers(){}//end reportAllCustomers
+	public void reportAllUsers(){
+		for(Customer i : customers){
+			i.getReport();
+		}//end for
+	}//end reportAllCustomers
 
-	public void addUser(){}//end addUser
+	public void addUser(){
 
-	public void applyInterest(){}//end applyInterest
+		customers.add(new Customer());
+	}//end addUser
 
-	public void loginAsCustomer(){}//end loginAsCustomer
+	public void applyInterest(){
+	
+	}//end applyInterest
+
+	public void loginAsCustomer(){
+		System.out.print("Username: ");
+		String User = input.nextLine();
+		System.out.print("PIN: ");
+		String Pin = input.nextLine(); System.out.println();
+		for(Customer i : customers){
+			if(i.login(User, Pin)){
+				i.start();
+			}//end if
+		}//end for
+	}//end loginAsCustomer
 
 	public String menu(){
 		System.out.println("-------------------------");
@@ -93,7 +112,26 @@ class Bank implements HasMenu{
 	public void startAdmin(){
 		boolean status = admin.login();
 		if(status){
-			admin.start();
+			boolean keepGoing = true;
+			String choice = admin.menu();
+			while(keepGoing){
+				String Choice = admin.menu();
+				if(choice.equals("1")){
+					reportAllUsers();
+				}//end if
+				else if(choice.equals("2")){
+					addUser();
+				}//end elif
+				else if(choice.equals("3")){
+					applyInterest();
+				}//end elif
+				else if(choice.equals("0")){
+					keepGoing = false;
+				}//end elif
+				else{
+					System.out.println("!!!Please enter 0-3!!!");
+				}//end else
+			}//end while
 		}//end startAdmin
 	}//end startAdmin
 }//end class

@@ -11,6 +11,7 @@ class Customer extends User{
 		Customer test = new Customer("Alice", "0000");
 		test.login();
 		test.start();
+		System.out.println(test.getReport());
 
 	}//end main
 
@@ -100,6 +101,6 @@ class Customer extends User{
 
 	public String getReport(){
 		//System.out.println("Running getReport in Customer.java");
-		return(" ");
+		return("User: " + userName + ", Checking: $" + String.format("%.2f", checking.balance) + ", Savings: $" + String.format("%.2f", savings.balance));
 	}//end getReport
 }//end class
