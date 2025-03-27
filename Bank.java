@@ -110,12 +110,10 @@ class Bank implements HasMenu{
 	}//end start
 
 	public void startAdmin(){
-		boolean status = admin.login();
-		if(status){
+		if(admin.login()){
 			boolean keepGoing = true;
-			String choice = admin.menu();
 			while(keepGoing){
-				String Choice = admin.menu();
+				String choice = admin.menu();
 				if(choice.equals("1")){
 					reportAllUsers();
 				}//end if
