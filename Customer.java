@@ -1,10 +1,8 @@
 //Customer.java
-//import CheckingAccount.java;
-//import SavingsAccount.java;
 import java.util.*;
-import java.io.Serialization;
+import java.io.Serializable;
 
-class Customer extends User implements Serialization{
+class Customer extends User implements Serializable{
 	CheckingAccount checking = new CheckingAccount();
 	SavingsAccount savings = new SavingsAccount();
 	

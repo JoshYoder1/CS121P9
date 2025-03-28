@@ -1,8 +1,9 @@
 //CheckingAccount.java
 import java.util.*;
-class CheckingAccount implements HasMenu{
+import java.io.Serializable;
+class CheckingAccount implements HasMenu, Serializable{
 	double balance;
-	Scanner input = new Scanner(System.in);
+	//Scanner input = new Scanner(System.in);
 	public static void main(String[] args){
 		System.out.println("Running Main in CheckingAccount.java");
 		CheckingAccount test = new CheckingAccount(8);
@@ -23,6 +24,7 @@ class CheckingAccount implements HasMenu{
 	//HasMenu.java Methods
 	public String menu(){
 		//System.out.println("Running menu in CheckingAccount.java");
+		Scanner input = new Scanner(System.in);
 		System.out.println("-------------------------");
 		String choice;
 		boolean keepGoing = true;
@@ -117,6 +119,7 @@ class CheckingAccount implements HasMenu{
 
 	protected double getDouble(){
 		//System.out.println("Running getDouble in CheckingAccount.java");
+		Scanner input = new Scanner(System.in);
 		while(true){	
 			try{
 				String temp = input.nextLine();
