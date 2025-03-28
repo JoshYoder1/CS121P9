@@ -17,7 +17,7 @@ class Admin extends User{
 	public Admin(){
 		//System.out.print("Set Username: "); userName = "Admin"; System.out.println("Admin");
 		//System.out.print("Set PIN: "); PIN = "0000"; System.out.println("0000");
-		userName = "Admin";
+		userName = "admin";
 		PIN = "0000";
 	}//end Admin
 
@@ -34,7 +34,7 @@ class Admin extends User{
 		System.out.println();
 		System.out.print("Action: ");
 		String choice = input.nextLine();
-	        System.out.println("Choice is " + choice);	
+	    //System.out.println("Choice is " + choice);	
 		//input.close();
 		return(choice);
 	}//end menu

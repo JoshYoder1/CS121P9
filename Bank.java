@@ -8,33 +8,41 @@ class Bank implements HasMenu{
 	//private Scanner input = new Scanner(System.in);
 	
 	public Bank(){
-		//loadSampleCustomers();
-		//saveCustomers();
+		loadSampleCustomers();
+		saveCustomers();
 		loadCustomers();
-		System.out.println(customers);
+		//System.out.println(customers);
 		start();
-		System.out.println(customers);
+		//System.out.println(customers);
 		saveCustomers();
 	}//end Bank
 
 	public static void main(String[] args){
-		System.out.println("Running Main in Bank");
+		//System.out.println("Running Main in Bank");
 		Bank bank = new Bank();
 		//bank.start();
 	}//end main
 
-	public void loadSampleCustomers(){}//end LoadSampleCustomers
-		
+	public void loadSampleCustomers(){
+		try{
+			FileInputStream fIn = new FileInputStream("sample.dat");
+			ObjectInputStream obIn = new ObjectInputStream(fIn);
+			customers = (ArrayList<Customer>)obIn.readObject();
+			//System.out.println("Load ArrayList... Successful!");
+			obIn.close();
+			fIn.close();
+		} catch(Exception e){
+			System.out.println("Load Unsuccessful");
+			System.out.println(e.getMessage());
+		}//end try
+	}//end LoadSampleCustomers
 
 	public void saveCustomers(){
 		try{
 			FileOutputStream fo = new FileOutputStream("customers.dat");
-			System.out.print(1);
 			ObjectOutputStream obOut = new ObjectOutputStream(fo);
-			System.out.print(2);
 			obOut.writeObject(customers);
-			System.out.print(3);
-			System.out.println("Save ArrayList... Successful!");
+			//System.out.println("Save ArrayList... Successful!");
 			obOut.close();
 			fo.close();
 		}catch(Exception e){
@@ -48,7 +56,7 @@ class Bank implements HasMenu{
 			FileInputStream fIn = new FileInputStream("customers.dat");
 			ObjectInputStream obIn = new ObjectInputStream(fIn);
 			customers = (ArrayList<Customer>)obIn.readObject();
-			System.out.println("Load ArrayList... Successful!");
+			//System.out.println("Load ArrayList... Successful!");
 			obIn.close();
 			fIn.close();
 		} catch(Exception e){
@@ -73,7 +81,9 @@ class Bank implements HasMenu{
 	}//end addUser
 
 	public void applyInterest(){
-	
+		for(Customer i : customers){
+			i.savings.balance = i.savings.interestRate * i.savings.balance + i.savings.balance;
+		}//end for
 	}//end applyInterest
 
 	public void loginAsCustomer(){
