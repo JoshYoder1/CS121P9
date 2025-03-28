@@ -11,7 +11,9 @@ class Bank implements HasMenu{
 		//loadSampleCustomers();
 		//saveCustomers();
 		loadCustomers();
+		System.out.println(customers);
 		start();
+		System.out.println(customers);
 		saveCustomers();
 	}//end Bank
 
@@ -27,13 +29,17 @@ class Bank implements HasMenu{
 	public void saveCustomers(){
 		try{
 			FileOutputStream fo = new FileOutputStream("customers.dat");
+			System.out.print(1);
 			ObjectOutputStream obOut = new ObjectOutputStream(fo);
+			System.out.print(2);
 			obOut.writeObject(customers);
-			//System.out.println("Save ArrayList... Successful!");
+			System.out.print(3);
+			System.out.println("Save ArrayList... Successful!");
 			obOut.close();
 			fo.close();
 		}catch(Exception e){
-			System.out.println(e.getMessage());
+			System.out.println("Save Unsuccessful");
+			e.printStackTrace();
 		}//end try	
 	}//end saveCustomers
 
@@ -42,23 +48,27 @@ class Bank implements HasMenu{
 			FileInputStream fIn = new FileInputStream("customers.dat");
 			ObjectInputStream obIn = new ObjectInputStream(fIn);
 			customers = (ArrayList<Customer>)obIn.readObject();
-			//System.out.println("Load ArrayList... Successful!");
+			System.out.println("Load ArrayList... Successful!");
 			obIn.close();
 			fIn.close();
 		} catch(Exception e){
+			System.out.println("Load Unsuccessful");
 			System.out.println(e.getMessage());
 		}//end try
 	}//end loadCustomers
 
 	public void reportAllUsers(){
 		for(Customer i : customers){
-			i.getReport();
+			System.out.println(i.getReport());
 		}//end for
 	}//end reportAllCustomers
 
 	public void addUser(){
-
-		customers.add(new Customer());
+		System.out.print("Set Username: ");
+		String user = input.nextLine();
+		System.out.print("Set PIN: ");
+		String pin = input.nextLine(); System.out.println();
+		customers.add(new Customer(user, pin));
 	}//end addUser
 
 	public void applyInterest(){

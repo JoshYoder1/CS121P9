@@ -1,8 +1,8 @@
 //Admin.java
-import java.util.*;
+import java.util.Scanner;
 
 class Admin extends User{
-	private Scanner input = new Scanner(System.in);
+	//Scanner input = new Scanner(System.in);
 
 	public Admin(){
 		System.out.print("Set Username: "); userName = "Admin"; System.out.println("Admin");
@@ -11,6 +11,7 @@ class Admin extends User{
 
 	public String menu(){
 		//boolean keepGoing = true;
+		Scanner input = new Scanner(System.in);
 		System.out.println("-------------------------");
 		System.out.println("Admin Menu"); System.out.println();
 		System.out.println("0) Exit this menu");
@@ -18,6 +19,7 @@ class Admin extends User{
 		System.out.println("2) Add user");
 		System.out.println("3) Apply interest to savings accounts"); System.out.println();
 		System.out.print("Action: ");
+		//String choice = input.nextLine();
 		return(input.nextLine());
 		/*while(keepGoing){
 			System.out.print("Action: ");

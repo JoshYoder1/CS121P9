@@ -1,6 +1,7 @@
 //Customer.java
 //import CheckingAccount.java;
 //import SavingsAccount.java;
+import java.util.*;
 
 class Customer extends User{
 	CheckingAccount checking = new CheckingAccount();
@@ -12,17 +13,18 @@ class Customer extends User{
 		test.login();
 		test.start();
 		System.out.println(test.getReport());
-
 	}//end main
 
 	public Customer(){
 		//System.out.println("Running Customer in Customer.java");
+		Scanner input = new Scanner(System.in);
 		System.out.println("Enter user name: ");
 		userName = input.nextLine();
 		System.out.println();
 		System.out.println("Enter PIN: ");
 		PIN = input.nextLine();
 		System.out.println();
+		input.close();
 	}//end Customer
 
 	public Customer(String tempUser, String tempPIN){
@@ -55,6 +57,7 @@ class Customer extends User{
 	public String menu(){
 		System.out.println("-------------------------");
 		//System.out.println("Running menu in Customer.java");
+		Scanner input = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Customer Menu");
 		System.out.println();
@@ -94,9 +97,11 @@ class Customer extends User{
 
 	public void changePin(){
 		//System.out.println("Running changePin in Customer.java");
+		Scanner input = new Scanner(System.in);
 		System.out.print("Enter new PIN: ");
 		setPIN(input.nextLine());
 		System.out.println();
+		input.close();
 	}//end changePin
 
 	public String getReport(){

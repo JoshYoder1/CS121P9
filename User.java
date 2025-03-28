@@ -1,10 +1,10 @@
 //User.java
 import java.util.*;
-
-abstract class User implements HasMenu{
-	String PIN;
-	String userName;
-	Scanner input = new Scanner(System.in);
+import java.io.Serializable;
+abstract class User implements HasMenu, Serializable{
+	protected String PIN;
+	protected String userName;
+	//Scanner input = new Scanner(System.in);
 	/* Being hasMenu methods
 	public String menu(){
 		System.out.println("Running menu in User.java");
@@ -16,11 +16,13 @@ abstract class User implements HasMenu{
 	end hasMenu methods */
 	public boolean login(){
 		//System.out.println("Running login in User.java");
+		Scanner input = new Scanner(System.in);
 		System.out.print("User name: ");
 		String tempUser = input.nextLine();
 		//System.out.println();
 		System.out.print("PIN: ");
 		String tempPIN = input.nextLine();
+		input.close();
 		if(tempUser.equals(userName) && tempPIN.equals(PIN)){
 			System.out.println("Login Successful");
 			return(true);
