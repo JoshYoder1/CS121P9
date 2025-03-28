@@ -5,7 +5,7 @@ import java.io.*;
 class Bank implements HasMenu{
 	private Admin admin = new Admin();
 	protected ArrayList<Customer> customers = new ArrayList<Customer>();
-	private Scanner input = new Scanner(System.in);
+	//private Scanner input = new Scanner(System.in);
 	
 	public Bank(){
 		//loadSampleCustomers();
@@ -64,6 +64,7 @@ class Bank implements HasMenu{
 	}//end reportAllCustomers
 
 	public void addUser(){
+		Scanner input = new Scanner(System.in);
 		System.out.print("Set Username: ");
 		String user = input.nextLine();
 		System.out.print("Set PIN: ");
@@ -76,6 +77,7 @@ class Bank implements HasMenu{
 	}//end applyInterest
 
 	public void loginAsCustomer(){
+		Scanner input = new Scanner(System.in);
 		System.out.print("Username: ");
 		String User = input.nextLine();
 		System.out.print("PIN: ");
@@ -88,27 +90,31 @@ class Bank implements HasMenu{
 	}//end loginAsCustomer
 
 	public String menu(){
+		Scanner input = new Scanner(System.in);
 		System.out.println("-------------------------");
 		System.out.println("Bank Menu"); System.out.println();
 		System.out.println("0) Exit system");
 		System.out.println("1) Login as admin");
 		System.out.println("2) Login as customer"); System.out.println();
 		System.out.print("Action: ");
-		return(input.nextLine());
+		String choice = input.nextLine();
+		return(choice);
 	}//end menu
 		
 	public void start(){
 		boolean keepGoing = true;
 		while(keepGoing){
 			String choice = menu();
-			System.out.println("here");
 			if(choice.equals("0")){
 				System.out.println("Goodbye!");
 				keepGoing = false;
 			}//end if
 			else if(choice.equals("1")){
 				//System.out.println("Function not available");
-				startAdmin();
+				System.out.println("going to login admin");
+				if (admin.login()){
+				     startAdmin();
+				 } // endif
 			}//end elif
 			else if(choice.equals("2")){
 				loginAsCustomer();
@@ -120,7 +126,6 @@ class Bank implements HasMenu{
 	}//end start
 
 	public void startAdmin(){
-		if(admin.login()){
 			boolean keepGoing = true;
 			while(keepGoing){
 				String choice = admin.menu();
@@ -140,6 +145,5 @@ class Bank implements HasMenu{
 					System.out.println("!!!Please enter 0-3!!!");
 				}//end else
 			}//end while
-		}//end startAdmin
 	}//end startAdmin
 }//end class

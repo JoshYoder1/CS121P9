@@ -22,7 +22,7 @@ abstract class User implements HasMenu, Serializable{
 		//System.out.println();
 		System.out.print("PIN: ");
 		String tempPIN = input.nextLine();
-		input.close();
+		//input.close();
 		if(tempUser.equals(userName) && tempPIN.equals(PIN)){
 			System.out.println("Login Successful");
 			return(true);
