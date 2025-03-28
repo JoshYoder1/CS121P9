@@ -19,8 +19,8 @@ class Admin extends User{
 		System.out.println("2) Add user");
 		System.out.println("3) Apply interest to savings accounts"); System.out.println();
 		System.out.print("Action: ");
-		//String choice = input.nextLine();
-		return(input.nextLine());
+		String choice = input.nextLine(); input.close();
+		return(choice);
 		/*while(keepGoing){
 			System.out.print("Action: ");
 			String choice = input.nextLine(); System.out.println();

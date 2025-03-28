@@ -101,7 +101,7 @@ class Bank implements HasMenu{
 		boolean keepGoing = true;
 		while(keepGoing){
 			String choice = menu();
-			System.out.println();
+			System.out.println("here");
 			if(choice.equals("0")){
 				System.out.println("Goodbye!");
 				keepGoing = false;
